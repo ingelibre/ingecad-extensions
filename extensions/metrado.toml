@@ -1,12 +1,13 @@
 id = "metrado"
-version = "1.0"
+version = "1.0.1"
 author = "Marco Sumari Tellez"
 license = "GPL-3.0-or-later"
 repository = "https://github.com/ingelibre/ingecad-metrado"
-download = "https://github.com/ingelibre/ingecad-metrado/releases/download/v1.0/metrado-1.0.zip"
-sha256 = "8778eca7cd34fadce17a6bfb630f79a21320f7da247c9d69798d79647e2430b6"
+download = "https://github.com/ingelibre/ingecad-metrado/releases/download/v1.0.1/metrado-1.0.1.zip"
+sha256 = "03173b2fe99c7eb27a95dec4472368aaa5a3e3b92d1fe41b0657fb671c9e1304"
 ingecad = "0.6.9"
 tags = ["civil", "productivity"]
+screenshot = "metrado.png"
 
 [name]
 es = "Metrado por capas"
