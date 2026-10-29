@@ -1,0 +1,5 @@
+# Who must approve. The «reviewed» badge and the tools need a maintainer.
+*                    @tuxiasumari
+/reviewed.toml       @tuxiasumari
+/tools/              @tuxiasumari
+/.github/            @tuxiasumari

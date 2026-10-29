@@ -1,0 +1,47 @@
+# Copy this file to extensions/<id>.toml and fill it in.
+# Copia este archivo a extensions/<id>.toml y rellénalo.
+# Copie este arquivo para extensions/<id>.toml e preencha.
+
+# The name of your plugin's FOLDER, which is also PLUGIN.id in its
+# __init__.py and this file's name: lowercase letters, digits and _.
+id = "my_plugin"
+version = "1.0"
+author = "Your Name"
+# author_url = "https://github.com/you"            # optional
+
+# SPDX name of a free licence: MIT, GPL-3.0-or-later, Apache-2.0, BSD-3-Clause…
+license = "GPL-3.0-or-later"
+
+# Where people read your code.
+repository = "https://github.com/you/my-plugin"
+
+# The exact file IngeCAD users will install: a .zip holding ONE folder,
+# named like `id`, with your __init__.py (the one with PLUGIN = PluginSpec(...))
+# directly inside. Upload it as a release asset of a TAG; never a branch
+# such as «main»: what is reviewed must not change afterwards.
+download = "https://github.com/you/my-plugin/releases/download/v1.0/my_plugin.zip"
+# sha256sum my_plugin.zip      (Windows: certutil -hashfile my_plugin.zip SHA256)
+# If it is wrong, the check tells you the right one.
+sha256 = "0000000000000000000000000000000000000000000000000000000000000000"
+
+# The IngeCAD version you tested with.
+ingecad = "0.7.0"
+
+# 1 to 4 of: topography, civil, architecture, structures, gis,
+# import-export, drawing, annotation, productivity, education, other
+tags = ["civil"]
+
+# Optional: a picture in screenshots/ (png, jpg or webp, under 600 KB, ~1200×750).
+# screenshot = "my_plugin.png"
+
+# At least Spanish OR English. Portuguese is welcome. Machine translation is
+# fine — the page shows the visitor's language when it is there.
+[name]
+es = "Mi complemento"
+en = "My plugin"
+pt = "Meu complemento"
+
+[summary]   # one or two sentences, up to 240 characters
+es = "Qué hace, en una frase."
+en = "What it does, in one sentence."
+pt = "O que faz, em uma frase."

@@ -1,0 +1,11 @@
+The catalog entries (extensions/*.toml, reviewed.toml, catalog.json,
+TEMPLATE.toml) are dedicated to the public domain under CC0-1.0:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Screenshots belong to the authors of each plugin, who publish them here
+so the catalog can show them.
+
+tools/ and tests/ are GPL-3.0-or-later:
+https://www.gnu.org/licenses/gpl-3.0.html
+
+Each plugin listed keeps its own licence, named in its entry.

@@ -1,0 +1,10 @@
+# Plugins a maintainer has read. Only maintainers edit this file
+# (.github/CODEOWNERS). The review is for ONE file: the hash of the zip.
+# When an entry's sha256 changes, the page and IngeCAD's extension center
+# show it as «Community» again until a maintainer reads the new version and
+# updates the hash here.
+#
+# [my_plugin]
+# sha256 = "…"
+# by = "github-login"
+# date = 2026-11-01

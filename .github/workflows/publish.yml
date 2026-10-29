@@ -1,0 +1,57 @@
+# After a merge into main: rebuild catalog.json, which ingecad.org and IngeCAD read.
+# The page picks it up within minutes; nobody has to deploy anything.
+name: publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "extensions/**"
+      - "screenshots/**"
+      - "reviewed.toml"
+      - "tools/catalog.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The whole history: «added_at» / «updated_at» come from the git
+          # log of each entry (tools/catalog.py entry_dates).
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tools/catalog.py check --offline
+      - run: python tools/catalog.py build
+      - name: Commit catalog.json if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog.json
+          # The timestamp alone is not a change worth a commit.
+          # Two merges seconds apart: the other run may push first. Then
+          # rebuild on top of the new main instead of rebasing (both runs
+          # touch catalog.json, a rebase would conflict).
+          for attempt in 1 2 3; do
+            if git diff --cached -I '"generated"' --quiet; then
+              echo "catalog.json unchanged"
+              exit 0
+            fi
+            git commit -m "catalog.json: rebuild"
+            git push && exit 0
+            git fetch origin main
+            git reset --hard origin/main
+            python tools/catalog.py build
+            git add catalog.json
+          done
+          exit 1

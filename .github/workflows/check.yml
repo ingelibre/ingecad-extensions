@@ -1,0 +1,28 @@
+# Every pull request: are the entries complete, the licence free, the hash
+# right, is the zip safe, and is there a PluginSpec IngeCAD can load? The
+# zip is downloaded and READ (zipfile + ast): never extracted, never run.
+# Weekly, the whole catalog again: an author's file that moved or changed
+# shows up here before a user trips on it.
+name: check
+
+on:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: python -m pytest -q tests
+      - name: Check the entries
+        run: python tools/catalog.py check
