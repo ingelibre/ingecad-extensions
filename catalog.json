@@ -1,6 +1,6 @@
 {
  "format": 1,
- "generated": "2026-10-29T21:06Z",
+ "generated": "2026-10-29T21:07Z",
  "tags": [
   "annotation",
   "architecture",
@@ -39,8 +39,8 @@
     "pt": "Comprimentos, áreas (hachuras sem os furos) e contagem de blocos por camada dos objetos selecionados, como tabela no desenho ou arquivo CSV."
    },
    "reviewed": false,
-   "added_at": "2026-10-29T21:05Z",
-   "updated_at": "2026-10-29T21:05Z"
+   "added_at": "2026-10-29T21:07Z",
+   "updated_at": "2026-10-29T21:07Z"
   }
  ]
 }
